@@ -135,7 +135,7 @@ fn canonicalize_schema(schema: &Schema) -> Schema {
                     let child_field = Field::new("entries", struct_type, false);
 
                     Arc::new(Field::new(
-                        field.name().as_str(),
+                        field.name(),
                         DataType::Map(Arc::new(child_field), *sorted),
                         field.is_nullable(),
                     ))

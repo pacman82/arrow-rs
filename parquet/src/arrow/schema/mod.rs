@@ -299,7 +299,7 @@ pub fn decimal_length_from_precision(precision: u8) -> usize {
 
 /// Convert an arrow field to a parquet `Type`
 fn arrow_to_parquet_type(field: &Field) -> Result<Type> {
-    let name = field.name().as_str();
+    let name = field.name();
     let repetition = if field.is_nullable() {
         Repetition::OPTIONAL
     } else {

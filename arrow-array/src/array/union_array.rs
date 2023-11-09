@@ -278,10 +278,9 @@ impl UnionArray {
     /// Returns the names of the types in the union.
     pub fn type_names(&self) -> Vec<&str> {
         match self.data_type() {
-            DataType::Union(fields, _) => fields
-                .iter()
-                .map(|(_, f)| f.name().as_str())
-                .collect::<Vec<&str>>(),
+            DataType::Union(fields, _) => {
+                fields.iter().map(|(_, f)| f.name()).collect::<Vec<&str>>()
+            }
             _ => unreachable!("Union array's data type is not a union!"),
         }
     }

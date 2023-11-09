@@ -69,6 +69,7 @@ impl PartialOrd for Field {
 impl Ord for Field {
     fn cmp(&self, other: &Self) -> Ordering {
         self.name
+            .as_str()
             .cmp(other.name())
             .then_with(|| self.data_type.cmp(other.data_type()))
             .then_with(|| self.nullable.cmp(&other.nullable))
@@ -266,7 +267,7 @@ impl Field {
 
     /// Returns an immutable reference to the `Field`'s name.
     #[inline]
-    pub const fn name(&self) -> &String {
+    pub fn name(&self) -> &str {
         &self.name
     }
 

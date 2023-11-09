@@ -1595,7 +1595,7 @@ mod tests {
             schema.field(5).data_type()
         );
 
-        let names: Vec<&str> = schema.fields().iter().map(|x| x.name().as_str()).collect();
+        let names: Vec<&str> = schema.fields().iter().map(|x| x.name()).collect();
         assert_eq!(
             names,
             vec![
